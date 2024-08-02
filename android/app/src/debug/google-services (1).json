@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "471906577381",
+    "project_id": "bekaar-25657",
+    "storage_bucket": "bekaar-25657.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471906577381:android:d3cc056830280d78909d0c",
+        "android_client_info": {
+          "package_name": "com.bekaar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmIS6ShtxN0s7imk4OdcE92xgZ_K16ye4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

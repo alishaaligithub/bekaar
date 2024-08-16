@@ -1,13 +1,15 @@
 // SignupScreen.js
 import React,{useState} from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet , Alert} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet , Alert, useColorScheme} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 const Signup = ({navigation})  => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const colorScheme = useColorScheme();
 
+  const placeholderTextColor= colorScheme === 'dark' ? '#ccc' : '#666';
 
   const handleCreateAccount = () => {
     auth().createUserWithEmailAndPassword(email, password).then(()=>{
@@ -28,18 +30,21 @@ const Signup = ({navigation})  => {
       <TextInput
         style={styles.input}
         placeholder="Username"
+        placeholderTextColor={placeholderTextColor}
         value={username}
         onChangeText={ text => setUsername(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Email"
+        placeholderTextColor={placeholderTextColor}
         value={email}
         onChangeText={setEmail}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
+        placeholderTextColor={placeholderTextColor}
         value={password}
         onChangeText={setPassword}
         secureTextEntry

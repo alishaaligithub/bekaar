@@ -1,16 +1,19 @@
 // LoginScreen.js
 import React , {useState}  from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet , Image,  Alert} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet , Image,  Alert, useColorScheme} from 'react-native';
 
-
+import { useTheme } from '../navigation/ThemeProvider';
 import auth from '@react-native-firebase/auth';
-import { useScrollToTop } from '@react-navigation/native';
+
 
 
 const Login = ({navigation}) => {
 
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
+const colorScheme = useColorScheme();
+
+const placeholderTextColor= colorScheme === 'dark' ? '#ccc' : '#666';
   const handleLogin =  () => {
     
       auth().signInWithEmailAndPassword(email, password).then((res)=>{
@@ -39,6 +42,7 @@ resizeMode : 'center',
       <TextInput
         style={styles.input}
         placeholder="Email"
+        placeholderTextColor={placeholderTextColor}
         value={email}
         onChangeText={ text => setEmail(text)}
       />
@@ -46,6 +50,7 @@ resizeMode : 'center',
       <TextInput
         style={styles.input}
         placeholder="Password"
+        placeholderTextColor={placeholderTextColor}
         value={password}
         onChangeText={ text =>setPassword(text)}
         secureTextEntry
@@ -77,7 +82,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 32,
@@ -93,7 +98,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     marginBottom: 20,
-    color: '#333',
+    color: 'black',
+    backgroundColor: 'white',
   },
   button: {
     width: '100%',

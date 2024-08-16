@@ -23,7 +23,7 @@ resizeMode : 'center',
   fontSize:25,
   color:'#5D76A9',
   fontWeight:'bold',
-}}>Bekaar Ko Aakar</Text>
+}}>Bekar Ko Aakar</Text>
 </View>
 );
 };

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity ,Alert} from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity ,Alert,useColorScheme} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 const Forget = ({ navigation }) => {
   const [email, setEmail] = useState('');
+  const colorScheme = useColorScheme();
+
+const placeholderTextColor= colorScheme === 'dark' ? '#ccc' : '#666';
+const keyboardTypeColor= colorScheme === 'dark' ? '#ccc' : '#666';
 
   const handleResetPassword = () => {
     auth().sendPasswordResetEmail(email)
@@ -26,7 +30,9 @@ const Forget = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="Email"
+        placeholderTextColor={placeholderTextColor}
         keyboardType="email-address"
+        keyboardTypeColor={keyboardTypeColor}
         value={email}
         onChangeText={setEmail}
          
@@ -54,10 +60,13 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     marginBottom: 8,
+    color:'black',
   },
   description: {
     textAlign: 'center',
     marginBottom: 16,
+    color:'black',
+
   },
   input: {
     width: '100%',
@@ -66,6 +75,8 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 4,
     marginBottom: 16,
+    color:'black',
+
   },
   button: {
     width: '100%',
